@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'Market/css/news.css' %}">
+    <title>{% block title%} {% endblock %}</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i class='bx bxl-kubernetes'></i>
+                <div class="logo_name">
+                    Cardshop
+                </div>
+            </div>
+            <i class='bx bx-menu' id="btn-menu"></i>
+        </div>
+        <ul class="nav_list">
+            <li>
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Поиск...">
+                <span class="tooltip">Поиск</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Профиль</span>
+                </a>
+                <span class="tooltip">Профиль</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">Сообщения</span>
+                </a>
+                <span class="tooltip">Сообщения</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cart-alt'></i>
+                    <span class="links_name">Корзина</span>
+                </a>
+                <span class="tooltip">Корзина</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Сохраненные</span>
+                </a>
+                <span class="tooltip">Сохраненные</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-chat'></i>
+                    <span class="links_name">Обратная связь</span>
+                </a>
+                <span class="tooltip">Обратная связь</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-question-mark'></i>
+                    <span class="links_name">О проекте</span>
+                </a>
+                <span class="tooltip">О проекте</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Настройки</span>
+                </a>
+                <span class="tooltip">Настройки</span>
+            </li>
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="{% static 'Market/images/avatar.jpg' %}" alt="">
+                    <div class="name_job">
+                        <div class="name">Ophamin</div>
+                        <div class="job">Django Developer</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+    <script>
+    let btn = document.querySelector('#btn-menu')
+    let sidebar = document.querySelector('.sidebar')
+    let searchBtn = document.querySelector('.bx-search')
+
+    btn.onclick = function() {
+        sidebar.classList.toggle('active');
+    }
+
+    searchBtn.onclick = function() {
+        sidebar.classList.toggle('active');
+    }
+    </script>
+</body>
+</html>
